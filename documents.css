@@ -1,0 +1,106 @@
+/* documents.css - extra styles for the Documents page (loads after education.css) */
+
+.hint { color: var(--slate); font-size: 0.82rem; margin: -0.4rem 0 1rem; max-width: 42rem; }
+
+.page-alert {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+    border-radius: 0.5rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
+    margin-bottom: var(--gap);
+}
+
+/* Checklist card */
+.checklist { list-style: none; margin-top: 0.6rem; display: grid; gap: 0.35rem; font-size: 0.85rem; }
+.checklist li { display: flex; align-items: center; gap: 0.6rem; color: var(--slate); }
+.checklist li i { color: #cbd5e1; }
+.checklist li.done { color: var(--navy); font-weight: 500; }
+.checklist li.done i { color: #15803d; }
+
+/* Profile photo */
+.photo-row { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+
+.photo-preview {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    border: 3px solid var(--orange);
+    background: #f1f5f9;
+    color: #94a3b8;
+    font-size: 2.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.photo-preview img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Certificate form */
+.cert-form { display: grid; gap: 1rem; align-items: end; margin-bottom: 1.2rem; }
+@media (min-width: 640px) { .cert-form { grid-template-columns: minmax(0, 1fr) auto; } }
+
+/* Uploaded file rows */
+.doc-list-up { display: grid; gap: 0.7rem; }
+
+.doc-empty {
+    border: 1px dashed var(--line);
+    border-radius: 0.6rem;
+    padding: 1.1rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.doc-item {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: 0.6rem;
+    padding: 0.7rem;
+    background: #fff;
+}
+
+.doc-thumb {
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 0.45rem;
+    background: #f1f5f9;
+    color: #dc2626;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.doc-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+.doc-info { min-width: 0; flex: 1; }
+.doc-title { font-weight: 600; font-size: 0.88rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.doc-meta { font-size: 0.75rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.doc-actions { display: flex; align-items: center; gap: 0.2rem; flex-shrink: 0; }
+
+.doc-actions a,
+.doc-actions button {
+    background: transparent;
+    border: none;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 0.4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--slate);
+}
+.doc-actions a:hover { color: var(--orange); background: var(--orange-soft); }
+.doc-actions button:hover { color: var(--danger); background: #fef2f2; }
+
+.btn[disabled] { opacity: 0.6; cursor: not-allowed; }
+
+.form-actions-end { justify-content: flex-end; }
+@media (min-width: 640px) { .form-actions-end { flex-direction: row; } }

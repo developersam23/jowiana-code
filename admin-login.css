@@ -1,0 +1,356 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top, #292929, #111 50%, #000);
+    color: #fff;
+    min-height: 100vh;
+}
+
+
+.login-page {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px 20px;
+}
+
+
+/* BRAND */
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 25px;
+}
+
+.brand-icon {
+    width: 58px;
+    height: 58px;
+
+    background: #ff7a00;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #000;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 0 25px rgba(255, 122, 0, 0.3);
+}
+
+.brand h1 {
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.brand p {
+    color: #ff7a00;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-top: 4px;
+}
+
+
+/* CARD */
+
+.login-card {
+    width: 100%;
+    max-width: 430px;
+
+    background: #161616;
+
+    border: 1px solid #333;
+
+    border-radius: 16px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+
+.login-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ff7a00;
+
+    background: rgba(255, 122, 0, 0.1);
+
+    border: 1px solid #ff7a00;
+
+    font-size: 28px;
+}
+
+
+.login-card h2 {
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+
+.subtitle {
+    color: #999;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    margin-bottom: 25px;
+}
+
+
+/* MESSAGE */
+
+.message {
+    display: none;
+
+    padding: 12px 14px;
+
+    border-radius: 8px;
+
+    margin-bottom: 18px;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+.message.error {
+    display: block;
+
+    color: #ff7777;
+
+    background: rgba(220, 50, 50, 0.1);
+
+    border: 1px solid #a33;
+}
+
+.message.success {
+    display: block;
+
+    color: #65df98;
+
+    background: rgba(30, 180, 90, 0.1);
+
+    border: 1px solid #298653;
+}
+
+
+/* FORM */
+
+.form-group {
+    text-align: left;
+
+    margin-bottom: 19px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #ddd;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+.form-group label i {
+    color: #ff7a00;
+
+    margin-right: 6px;
+}
+
+
+.form-group input {
+    width: 100%;
+
+    height: 48px;
+
+    background: #0e0e0e;
+
+    border: 1px solid #3a3a3a;
+
+    border-radius: 8px;
+
+    color: #fff;
+
+    padding: 0 14px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #ff7a00;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 122, 0, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #666;
+}
+
+
+/* PASSWORD */
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 50px;
+}
+
+.password-wrapper button {
+    position: absolute;
+
+    right: 12px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: none;
+
+    background: none;
+
+    color: #888;
+
+    cursor: pointer;
+
+    font-size: 17px;
+}
+
+.password-wrapper button:hover {
+    color: #ff7a00;
+}
+
+
+/* LOGIN BUTTON */
+
+.login-button {
+    width: 100%;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #ff7a00;
+
+    color: #000;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    margin-top: 5px;
+
+    transition: 0.2s;
+}
+
+.login-button:hover {
+    background: #ff8d26;
+
+    transform: translateY(-1px);
+}
+
+.login-button:disabled {
+    opacity: 0.65;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* LINK */
+
+.back-link {
+    margin-top: 25px;
+}
+
+.back-link a {
+    color: #ff7a00;
+
+    text-decoration: none;
+
+    font-size: 14px;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* COPYRIGHT */
+
+.copyright {
+    margin-top: 25px;
+
+    color: #666;
+
+    font-size: 12px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+
+    .login-page {
+        padding: 20px 15px;
+    }
+
+    .login-card {
+        padding: 28px 20px;
+    }
+
+    .brand h1 {
+        font-size: 21px;
+    }
+
+}

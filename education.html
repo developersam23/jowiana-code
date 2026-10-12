@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education &amp; Qualifications - Jowaina Son Boda Boda Community</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="education.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <button type="button" id="sidebarToggle" class="icon-btn menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar"><i class="fa-solid fa-bars"></i></button>
+            <a href="index.html" class="logo">
+                <span class="logo-ring"><i class="fa-solid fa-location-dot"></i></span>
+                <span class="logo-text"><span class="logo-name">JOWAINA <em>SON</em></span><span class="logo-sub">BODA BODA COMMUNITY</span></span>
+            </a>
+            <nav class="top-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a><a href="index.html#about">About</a><a href="riders.html">Riders</a><a href="opportunities.html">Opportunities</a><a href="support.html">Support</a>
+            </nav>
+            <div class="top-actions">
+                <button type="button" class="icon-btn bell" aria-label="Notifications, 3 new"><i class="fa-regular fa-bell"></i><span class="bell-badge">3</span></button>
+                <div class="user-menu">
+                    <button type="button" id="userBtn" class="user-btn" aria-haspopup="true" aria-expanded="false" aria-controls="userDropdown"><span class="user-avatar"><i class="fa-solid fa-user"></i></span><span class="user-name" data-rider-name>Rider</span><i class="fa-solid fa-chevron-down user-caret"></i></button>
+                    <div id="userDropdown" class="user-dropdown hidden" role="menu"><a href="profile.html" role="menuitem"><i class="fa-solid fa-user"></i> My Profile</a><a href="settings.html" role="menuitem"><i class="fa-solid fa-gear"></i> Settings</a><a href="logout.php" role="menuitem"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="shell">
+        <aside id="sidebar" class="sidebar" aria-label="Rider menu">
+            <div class="rider-card"><span class="rider-photo"><i class="fa-solid fa-user"></i></span><h2 class="rider-name" data-rider-name>Rider</h2><p class="rider-id">Rider ID: <span data-rider-id>-</span></p></div>
+            <nav class="side-nav" aria-label="Profile sections">
+                <a href="dashboard.html"><i class="fa-solid fa-table-cells-large"></i><span>Dashboard</span></a>
+                <a href="profile.html"><i class="fa-solid fa-user"></i><span>Profile</span></a>
+                <a href="education.html" class="active" aria-current="page"><i class="fa-solid fa-graduation-cap"></i><span>Education &amp; Qualifications</span></a>
+                <a href="work-experience.html"><i class="fa-solid fa-briefcase"></i><span>Work Experience</span></a>
+                <a href="rider-qualifications.html"><i class="fa-solid fa-shield-halved"></i><span>Rider Qualifications</span></a>
+                <a href="skills.html"><i class="fa-solid fa-screwdriver-wrench"></i><span>Skills</span></a>
+                <a href="documents.html"><i class="fa-solid fa-file-lines"></i><span>Documents</span></a>
+                <a href="opportunities.html"><i class="fa-solid fa-bullseye"></i><span>Opportunities</span></a>
+                <a href="settings.html"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+            </nav>
+            <nav class="side-nav side-nav-site" aria-label="Site links"><a href="index.html"><i class="fa-solid fa-house"></i><span>Home</span></a><a href="index.html#about"><i class="fa-solid fa-circle-info"></i><span>About</span></a><a href="riders.html"><i class="fa-solid fa-users"></i><span>Riders</span></a><a href="support.html"><i class="fa-solid fa-headset"></i><span>Support</span></a></nav>
+            <div class="promo">
+                <div class="promo-logo"><span class="logo-ring logo-ring-lg"><i class="fa-solid fa-location-dot"></i></span><span class="promo-name">JOWAINA <em>SON</em></span><span class="promo-sub">BODA BODA COMMUNITY</span></div>
+                <p class="promo-text">Better Riders<br>Stronger<br>Communities</p>
+                <svg class="promo-swoosh" viewBox="0 0 240 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 Q90 40 238 88 L0 90 Z" fill="#ff6a00"/><path d="M0 26 Q70 56 150 90 L0 90 Z" fill="#0b0b0c"/><path d="M0 50 Q50 70 90 90 L0 90 Z" fill="#ff6a00"/></svg>
+                <i class="fa-solid fa-motorcycle promo-bike" aria-hidden="true"></i>
+            </div>
+        </aside>
+        <div id="sidebarOverlay" class="sidebar-overlay hidden"></div>
+
+        <main class="content">
+            <nav class="breadcrumb" aria-label="Breadcrumb"><a href="dashboard.html" aria-label="Dashboard"><i class="fa-solid fa-house"></i></a><span class="crumb-sep">|</span><a href="profile.html">Profile</a><i class="fa-solid fa-chevron-right crumb-arrow"></i><span class="crumb-current">Education &amp; Qualifications</span></nav>
+            <div class="page-head">
+                <div class="page-title"><span class="title-icon"><i class="fa-solid fa-graduation-cap"></i></span><div><h1>Education &amp; Qualifications</h1><p>Tell us about your education, training and qualifications. This helps us match you with better opportunities and support.</p></div></div>
+                <div class="progress-card"><div class="progress-top"><strong>Profile Completion</strong><span id="progressPercent" class="progress-percent">40%</span></div><div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" id="progressTrack"><div id="progressFill" class="progress-fill" style="width:40%"></div></div><p id="progressText" class="progress-text">Complete your education section to unlock more opportunities.</p></div>
+            </div>
+
+            <form id="educationForm" novalidate>
+                <section class="panel">
+                    <h2 class="panel-title"><span class="step">1</span> Highest Education Level</h2>
+                    <div class="grid">
+                        <div class="field"><label for="eduLevel">Highest Education Level <span class="req">*</span></label><div class="select-wrap"><select id="eduLevel" name="eduLevel" required><option value="">Select level</option><option>Primary</option><option>Secondary</option><option>Certificate</option><option>Diploma</option><option>Degree</option><option>Postgraduate</option><option>None</option></select></div><span class="field-error"></span></div>
+                        <div class="field"><label for="course">Course / Programme Studied <span class="req">*</span></label><input type="text" id="course" name="course" required placeholder="e.g. Kenya Certificate of Secondary Education (KCSE)"><span class="field-error"></span></div>
+                        <div class="field"><label for="fieldOfStudy">Field of Study <span class="req">*</span></label><input type="text" id="fieldOfStudy" name="fieldOfStudy" required placeholder="e.g. General Studies"><span class="field-error"></span></div>
+                        <div class="field"><label for="school">School / Institution Name <span class="req">*</span></label><input type="text" id="school" name="school" required placeholder="e.g. Nairobi School"><span class="field-error"></span></div>
+                        <div class="field"><label for="location">Location of Institution <span class="req">*</span></label><div class="select-wrap"><select id="location" name="location" required><option value="">Select county</option></select></div><span class="field-error"></span></div>
+                        <div class="field"><label for="yearDone">Year Graduated / Completed <span class="req">*</span></label><div class="select-wrap"><select id="yearDone" name="yearDone" required><option value="">Select year</option></select></div><span class="field-error"></span></div>
+                        <div class="field"><label for="eduStatus">Education Status <span class="req">*</span></label><div class="select-wrap"><select id="eduStatus" name="eduStatus" required><option value="">Select status</option><option>Completed</option><option>In progress</option><option>Incomplete</option></select></div><span class="field-error"></span></div>
+                        <div class="field"><label for="grade">Grade / Qualification Obtained <span class="req">*</span></label><input type="text" id="grade" name="grade" required placeholder="e.g. B- (Plain)"><span class="field-error"></span></div>
+                        <div class="field field-full"><label for="certName">Certificate / Award Name (if any)</label><input type="text" id="certName" name="certName" placeholder="e.g. KCSE Certificate"></div>
+                    </div>
+                </section>
+
+                <section class="panel">
+                    <div class="panel-head"><h2 class="panel-title"><span class="step">2</span> Professional &amp; Vocational Training</h2><button type="button" id="addTraining" class="btn btn-outline-orange"><i class="fa-solid fa-plus"></i> Add Training</button></div>
+                    <div id="trainingList">
+                        <div class="training-block" data-training><div class="grid">
+                            <div class="field"><label>Training Type</label><div class="select-wrap"><select class="t-type"><option value="">Select training</option><option>Defensive Riding</option><option>Motorcycle Mechanics</option><option>First Aid</option><option>Road Safety</option><option>Customer Service</option><option>Business Skills</option><option>Other</option></select></div><span class="field-error"></span></div>
+                            <div class="field"><label>Training Institution</label><div class="select-wrap"><select class="t-inst"><option value="">Select institution</option><option>NTSA</option><option>Driving School</option><option>TVET Institution</option><option>Red Cross</option><option>Boda Boda Association</option><option>Other</option></select></div><span class="field-error"></span></div>
+                            <div class="field"><label>Certification Obtained</label><input type="text" class="t-cert" placeholder="e.g. Defensive Riding Certificate"><span class="field-error"></span></div>
+                            <div class="field"><label>Date Completed</label><div class="date-wrap"><i class="fa-regular fa-calendar"></i><input type="date" class="t-date"></div><span class="field-error"></span></div>
+                        </div></div>
+                    </div>
+                </section>
+
+                <section class="panel">
+                    <h2 class="panel-title"><span class="step">3</span> Other Relevant Qualifications</h2>
+                    <div class="field"><label for="otherQuals">Additional Certifications / Courses</label><div class="textarea-wrap"><textarea id="otherQuals" name="otherQuals" maxlength="200" rows="3" placeholder="e.g. First Aid, Motorcycle Mechanics, Customer Service, Digital Skills"></textarea><span id="charCount" class="char-count">0/200</span></div></div>
+                    <div class="form-actions"><button type="button" id="skipBtn" class="btn btn-outline-orange">Skip for now</button><button type="submit" class="btn btn-solid-orange"><span>Save &amp; Continue</span> <i class="fa-solid fa-arrow-right"></i></button></div>
+                </section>
+            </form>
+        </main>
+    </div>
+
+    <template id="trainingTemplate"><div class="training-block" data-training>
+        <button type="button" class="remove-training" aria-label="Remove this training"><i class="fa-solid fa-trash-can"></i> Remove</button>
+        <div class="grid">
+            <div class="field"><label>Training Type</label><div class="select-wrap"><select class="t-type"><option value="">Select training</option><option>Defensive Riding</option><option>Motorcycle Mechanics</option><option>First Aid</option><option>Road Safety</option><option>Customer Service</option><option>Business Skills</option><option>Other</option></select></div><span class="field-error"></span></div>
+            <div class="field"><label>Training Institution</label><div class="select-wrap"><select class="t-inst"><option value="">Select institution</option><option>NTSA</option><option>Driving School</option><option>TVET Institution</option><option>Red Cross</option><option>Boda Boda Association</option><option>Other</option></select></div><span class="field-error"></span></div>
+            <div class="field"><label>Certification Obtained</label><input type="text" class="t-cert" placeholder="e.g. First Aid Certificate"><span class="field-error"></span></div>
+            <div class="field"><label>Date Completed</label><div class="date-wrap"><i class="fa-regular fa-calendar"></i><input type="date" class="t-date"></div><span class="field-error"></span></div>
+        </div>
+    </div></template>
+    <div id="toast" class="toast hidden" role="status"><i class="fa-solid fa-circle-check"></i><span id="toastMsg">Saved</span></div>
+    <script src="education.js"></script>
+</body>
+</html>

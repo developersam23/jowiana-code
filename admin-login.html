@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Administrator Login - Jowaina Son</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="admin-login.css">
+
+</head>
+
+
+<body>
+
+<div class="login-page">
+
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            <i class="fas fa-motorcycle"></i>
+        </div>
+
+        <div>
+            <h1>JOWAINA SON</h1>
+            <p>BODA BODA COMMUNITY</p>
+        </div>
+
+    </div>
+
+
+    <div class="login-card">
+
+
+        <div class="login-icon">
+
+            <i class="fas fa-user-shield"></i>
+
+        </div>
+
+
+        <h2>Administrator Login</h2>
+
+        <p class="subtitle">
+            Sign in to manage the Jowaina Son community.
+        </p>
+
+
+        <div id="message" class="message"></div>
+
+
+        <form id="adminLoginForm">
+
+
+            <div class="form-group">
+
+                <label for="identifier">
+                    <i class="fas fa-envelope"></i>
+                    Administrator Email
+                </label>
+
+                <input
+                    type="email"
+                    id="identifier"
+                    name="identifier"
+                    placeholder="jowian@gmail.com"
+                    autocomplete="username"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="password">
+                    <i class="fas fa-lock"></i>
+                    Password
+                </label>
+
+
+                <div class="password-wrapper">
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+
+                    <button
+                        type="button"
+                        id="togglePassword"
+                        aria-label="Show password"
+                    >
+
+                        <i class="fas fa-eye"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                id="loginButton"
+                class="login-button"
+            >
+
+                <span id="loginText">
+
+                    <i class="fas fa-sign-in-alt"></i>
+                    Sign In
+
+                </span>
+
+
+                <span
+                    id="loadingText"
+                    style="display:none;"
+                >
+
+                    <i class="fas fa-spinner fa-spin"></i>
+                    Signing in...
+
+                </span>
+
+            </button>
+
+
+        </form>
+
+
+        <div class="back-link">
+
+            <a href="login.html">
+
+                <i class="fas fa-arrow-left"></i>
+
+                Rider Login
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <p class="copyright">
+
+        &copy; 2026 Jowaina Son Boda Boda Community
+
+    </p>
+
+
+</div>
+
+
+<script>
+
+const form =
+    document.getElementById("adminLoginForm");
+
+const message =
+    document.getElementById("message");
+
+const loginButton =
+    document.getElementById("loginButton");
+
+const loginText =
+    document.getElementById("loginText");
+
+const loadingText =
+    document.getElementById("loadingText");
+
+
+/* Password toggle */
+
+document
+    .getElementById("togglePassword")
+    .addEventListener("click", function () {
+
+        const password =
+            document.getElementById("password");
+
+        const icon =
+            this.querySelector("i");
+
+
+        if (password.type === "password") {
+
+            password.type = "text";
+
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+
+        } else {
+
+            password.type = "password";
+
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+
+        }
+
+    });
+
+
+/* Message */
+
+function showMessage(text, type) {
+
+    message.textContent = text;
+
+    message.className =
+        "message " + type;
+
+    message.style.display = "block";
+
+}
+
+
+/* Login */
+
+form.addEventListener(
+    "submit",
+    async function (event) {
+
+        event.preventDefault();
+
+
+        loginButton.disabled = true;
+
+        loginText.style.display = "none";
+
+        loadingText.style.display = "inline";
+
+
+        try {
+
+            const formData =
+                new FormData(form);
+
+
+            const response =
+                await fetch(
+                    "admin-login.php",
+                    {
+                        method: "POST",
+                        body: formData,
+                        credentials: "same-origin"
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (data.success) {
+
+                showMessage(
+                    data.message,
+                    "success"
+                );
+
+
+                setTimeout(
+                    function () {
+
+                        window.location.href =
+                            data.redirect ||
+                            "admin.php";
+
+                    },
+                    700
+                );
+
+
+            } else {
+
+                showMessage(
+                    data.message ||
+                    "Administrator login failed.",
+                    "error"
+                );
+
+            }
+
+
+        } catch (error) {
+
+            showMessage(
+                "Unable to connect to the server. Please try again.",
+                "error"
+            );
+
+
+        } finally {
+
+            loginButton.disabled = false;
+
+            loginText.style.display = "inline";
+
+            loadingText.style.display = "none";
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>

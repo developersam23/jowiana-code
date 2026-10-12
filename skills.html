@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills | Jowaina Son Boda Boda Community</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            background: radial-gradient(circle at top, #292929 0%, #111 45%, #000 100%);
+            color: #fff;
+        }
+
+        .page {
+            min-height: 100vh;
+            padding: 35px 20px;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        /* BRAND */
+
+        .brand {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 35px;
+        }
+
+        .brand-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .brand-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #ff7a00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 26px;
+            box-shadow: 0 0 25px rgba(255, 122, 0, .35);
+        }
+
+        .brand h1 {
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+
+        .brand p {
+            color: #ff7a00;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            font-weight: bold;
+        }
+
+        .back-link {
+            color: #ddd;
+            border: 1px solid #444;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .back-link:hover {
+            color: #ff7a00;
+            border-color: #ff7a00;
+        }
+
+        /* INTRO */
+
+        .intro {
+            background: linear-gradient(135deg, #202020, #101010);
+            border: 1px solid #383838;
+            border-radius: 16px;
+            padding: 35px;
+            text-align: center;
+            margin-bottom: 35px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, .4);
+        }
+
+        .intro-label {
+            color: #ff7a00;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .intro h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            line-height: 1.2;
+            margin: 12px 0;
+        }
+
+        .intro h2 span {
+            color: #ff7a00;
+        }
+
+        .intro p {
+            max-width: 620px;
+            margin: auto;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* SKILLS */
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .section-title h2 {
+            font-size: 27px;
+            margin-bottom: 7px;
+        }
+
+        .section-title p {
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .skill-card {
+            background: #161616;
+            border: 1px solid #333;
+            border-radius: 13px;
+            padding: 23px;
+            transition: .2s;
+        }
+
+        .skill-card:hover {
+            border-color: #ff7a00;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+        }
+
+        .skill-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .skill-card h3 {
+            font-size: 17px;
+            margin-bottom: 7px;
+        }
+
+        .skill-card p {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* BOTTOM MESSAGE */
+
+        .bottom-card {
+            margin-top: 30px;
+            padding: 30px 20px;
+            text-align: center;
+            background: #161616;
+            border: 1px solid #383838;
+            border-radius: 14px;
+        }
+
+        .bottom-card h2 {
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .bottom-card h2 span {
+            color: #ff7a00;
+        }
+
+        .bottom-card p {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #ff7a00;
+            color: #000;
+            font-weight: bold;
+            font-size: 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: .2s;
+        }
+
+        .btn:hover {
+            background: #ff8d26;
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+
+        .footer {
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            margin-top: 30px;
+        }
+
+        .footer strong {
+            color: #ff7a00;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 750px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .page {
+                padding: 25px 15px;
+            }
+
+            .brand h1 {
+                font-size: 15px;
+            }
+
+            .brand p {
+                font-size: 9px;
+            }
+
+            .back-link {
+                width: 100%;
+                text-align: center;
+            }
+
+            .intro {
+                padding: 27px 18px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-card {
+                padding: 20px;
+            }
+
+            .bottom-card h2 {
+                font-size: 22px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="page">
+    <main class="container">
+
+        <header class="brand">
+            <a href="dashboard.html" class="brand-info">
+                <div class="brand-icon">🏍️</div>
+                <div>
+                    <h1>JOWAINA SON BODA BODA</h1>
+                    <p>COMMUNITY &amp; RIDER EMPOWERMENT</p>
+                </div>
+            </a>
+
+            <a href="dashboard.html" class="back-link">
+                ← Back to Dashboard
+            </a>
+        </header>
+
+        <section class="intro">
+            <span class="intro-label">LEARN • IMPROVE • SUCCEED</span>
+            <h2>Better Skills. <span>More Opportunities.</span></h2>
+            <p>
+                Improve your skills to serve customers better, grow your
+                business, ride safely, and prepare for new opportunities.
+                Every skill you learn is a step toward a better future.
+            </p>
+        </section>
+
+        <section>
+            <div class="section-title">
+                <h2>Skills That Matter</h2>
+                <p>Keep learning. Keep improving. Keep moving forward.</p>
+            </div>
+
+            <div class="skills-grid">
+
+                <article class="skill-card">
+                    <div class="skill-icon">🏍️</div>
+                    <h3>Safe Riding</h3>
+                    <p>Improve road safety, awareness, and responsible riding.</p>
+                </article>
+
+                <article class="skill-card">
+                    <div class="skill-icon">🤝</div>
+                    <h3>Customer Care</h3>
+                    <p>Communicate respectfully and build customer trust.</p>
+                </article>
+
+                <article class="skill-card">
+                    <div class="skill-icon">💼</div>
+                    <h3>Business Skills</h3>
+                    <p>Learn budgeting, saving, and managing your income.</p>
+                </article>
+
+                <article class="skill-card">
+                    <div class="skill-icon">📱</div>
+                    <h3>Digital Skills</h3>
+                    <p>Use mobile apps and digital services confidently.</p>
+                </article>
+
+                <article class="skill-card">
+                    <div class="skill-icon">🔧</div>
+                    <h3>Motorcycle Care</h3>
+                    <p>Learn routine checks and recognize common problems.</p>
+                </article>
+
+                <article class="skill-card">
+                    <div class="skill-icon">🎓</div>
+                    <h3>Education & Training</h3>
+                    <p>Build knowledge through learning and relevant training.</p>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="bottom-card">
+            <h2>Invest in Your Skills. <span>Unlock Your Potential.</span></h2>
+            <p>
+                Keep your education and training details updated
+                so you are prepared when relevant opportunities arise.
+            </p>
+
+            <a href="education.html" class="btn">
+                Update My Skills →
+            </a>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p><strong>Jowaina Son Boda Boda Community</strong></p>
+        <p>Better Skills. Greater Potential. A Stronger Future.</p>
+        <p>&copy; <span id="currentYear"></span> All rights reserved.</p>
+    </footer>
+</div>
+
+<script>
+    document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+</script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Jowaina Son Boda Boda Community</title>
+    <meta name="robots" content="noindex, nofollow">
+    <!-- education.css holds the shared header, sidebar and panel styles; dashboard.css adds the dashboard parts -->
+    <link rel="stylesheet" href="education.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ================= TOP HEADER ================= -->
+    <header class="topbar">
+        <div class="topbar-inner">
+
+            <button type="button" id="sidebarToggle" class="icon-btn menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <a href="index.html" class="logo">
+                <span class="logo-ring"><i class="fa-solid fa-location-dot"></i></span>
+                <span class="logo-text">
+                    <span class="logo-name">JOWAINA <em>SON</em></span>
+                    <span class="logo-sub">BODA BODA COMMUNITY</span>
+                </span>
+            </a>
+
+            <nav class="top-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="riders.html">Riders</a>
+                <a href="opportunities.html">Opportunities</a>
+                <a href="support.html">Support</a>
+            </nav>
+
+            <div class="top-actions">
+                <a href="#notifications" class="icon-btn bell" aria-label="Notifications">
+                    <i class="fa-regular fa-bell"></i>
+                    <!-- hidden until dashboard.js has real notifications to count -->
+                    <span id="bellBadge" class="bell-badge hidden">0</span>
+                </a>
+
+                <div class="user-menu">
+                    <button type="button" id="userBtn" class="user-btn" aria-haspopup="true" aria-expanded="false" aria-controls="userDropdown">
+                        <span class="user-avatar"><i class="fa-solid fa-user"></i></span>
+                        <!-- the rider's real name is filled in by dashboard.js from me.php -->
+                        <span class="user-name" data-rider-name>Rider</span>
+                        <i class="fa-solid fa-chevron-down user-caret"></i>
+                    </button>
+                    <div id="userDropdown" class="user-dropdown hidden" role="menu">
+                        <a href="profile.html" role="menuitem"><i class="fa-solid fa-user"></i> My Profile</a>
+                        <a href="settings.html" role="menuitem"><i class="fa-solid fa-gear"></i> Settings</a>
+                        <a href="logout.php" role="menuitem"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <div class="shell">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside id="sidebar" class="sidebar" aria-label="Rider menu">
+
+            <div class="rider-card">
+                <span class="rider-photo"><i class="fa-solid fa-user"></i></span>
+                <h2 class="rider-name" data-rider-name>Rider</h2>
+                <p class="rider-id">Rider ID: <span data-rider-id>-</span></p>
+            </div>
+
+            <nav class="side-nav" aria-label="Profile sections">
+                <a href="dashboard.html" class="active" aria-current="page"><i class="fa-solid fa-table-cells-large"></i><span>Dashboard</span></a>
+                <a href="profile.html"><i class="fa-solid fa-user"></i><span>Profile</span></a>
+                <a href="education.html"><i class="fa-solid fa-graduation-cap"></i><span>Education &amp; Qualifications</span></a>
+                <a href="skills.html"><i class="fa-solid fa-screwdriver-wrench"></i><span>Skills</span></a>
+                <a href="documents.html"><i class="fa-solid fa-file-lines"></i><span>Documents</span></a>
+                <a href="opportunities.html"><i class="fa-solid fa-bullseye"></i><span>Opportunities</span></a>
+                <a href="profile.html"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+            </nav>
+
+            <nav class="side-nav side-nav-site" aria-label="Site links">
+                <a href="index.html"><i class="fa-solid fa-house"></i><span>Home</span></a>
+                <a href="index.html#about"><i class="fa-solid fa-circle-info"></i><span>About</span></a>
+                <a href="riders.html"><i class="fa-solid fa-users"></i><span>Riders</span></a>
+                <a href="support.html"><i class="fa-solid fa-headset"></i><span>Support</span></a>
+            </nav>
+
+            <div class="promo">
+                <div class="promo-logo">
+                    <span class="logo-ring logo-ring-lg"><i class="fa-solid fa-location-dot"></i></span>
+                    <span class="promo-name">JOWAINA <em>SON</em></span>
+                    <span class="promo-sub">BODA BODA COMMUNITY</span>
+                </div>
+                <p class="promo-text">Better Riders<br>Stronger<br>Communities</p>
+                <svg class="promo-swoosh" viewBox="0 0 240 90" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0 0 Q90 40 238 88 L0 90 Z" fill="#ff6a00"/>
+                    <path d="M0 26 Q70 56 150 90 L0 90 Z" fill="#0b0b0c"/>
+                    <path d="M0 50 Q50 70 90 90 L0 90 Z" fill="#ff6a00"/>
+                </svg>
+                <i class="fa-solid fa-motorcycle promo-bike" aria-hidden="true"></i>
+            </div>
+
+        </aside>
+
+        <div id="sidebarOverlay" class="sidebar-overlay hidden"></div>
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="content">
+
+            <!-- Welcome banner: the name comes from the rider who signed up -->
+            <section class="welcome">
+                <div class="welcome-text">
+                    <p class="welcome-small" id="greeting">Welcome back</p>
+                    <h1>Hello, <span data-rider-first>there</span>!</h1>
+                    <p class="welcome-sub">Rider ID: <strong data-rider-id>-</strong></p>
+                    <span id="verifyBadge" class="verify-badge pending">
+                        <i class="fa-solid fa-hourglass-half"></i> <span id="verifyText">Verification pending</span>
+                    </span>
+                </div>
+                <i class="fa-solid fa-motorcycle welcome-bike" aria-hidden="true"></i>
+            </section>
+
+            <!-- Profile completion + next step (values are set by dashboard.js) -->
+            <section class="panel next-step">
+                <div class="next-step-info">
+                    <div class="progress-top">
+                        <strong>Profile Completion</strong>
+                        <span id="progressPercent" class="progress-percent">0%</span>
+                    </div>
+                    <div class="progress-track" id="progressTrack" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                        <div id="progressFill" class="progress-fill" style="width:0%"></div>
+                    </div>
+                    <p id="progressText" class="progress-text">Finish your profile to get verified and unlock more opportunities.</p>
+                </div>
+                <a id="nextStepBtn" href="education.html" class="btn btn-solid-orange">
+                    <span id="nextStepText">Complete Education &amp; Qualifications</span> <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </section>
+
+            <!-- Stat cards -->
+            <section class="stats" aria-label="Summary">
+                <article class="stat">
+                    <span class="stat-icon"><i class="fa-solid fa-user-check"></i></span>
+                    <div>
+                        <p class="stat-num" id="statProfile">0%</p>
+                        <p class="stat-label">Profile complete</p>
+                    </div>
+                </article>
+                <article class="stat">
+                    <span class="stat-icon"><i class="fa-solid fa-file-lines"></i></span>
+                    <div>
+                        <p class="stat-num" id="statDocs">0</p>
+                        <p class="stat-label">Documents uploaded</p>
+                    </div>
+                </article>
+                <article class="stat">
+                    <span class="stat-icon"><i class="fa-solid fa-award"></i></span>
+                    <div>
+                        <p class="stat-num" id="statTrainings">0</p>
+                        <p class="stat-label">Trainings &amp; certificates</p>
+                    </div>
+                </article>
+                <article class="stat">
+                    <span class="stat-icon"><i class="fa-solid fa-bullseye"></i></span>
+                    <div>
+                        <p class="stat-num" id="statOpps">0</p>
+                        <p class="stat-label">New opportunities</p>
+                    </div>
+                </article>
+            </section>
+
+            <div class="dash-grid">
+
+                <!-- LEFT COLUMN -->
+                <div class="dash-col">
+
+                    <section class="panel">
+                        <div class="panel-head">
+                            <h2 class="panel-title"><span class="step"><i class="fa-solid fa-bullseye"></i></span> Opportunities for you</h2>
+                            <a href="opportunities.html" class="link-orange">View all</a>
+                        </div>
+                        <div id="oppList" class="opp-list"></div>
+                    </section>
+
+                    <section class="panel">
+                        <div class="panel-head">
+                            <h2 class="panel-title"><span class="step"><i class="fa-solid fa-file-lines"></i></span> Documents &amp; certificates</h2>
+                            <a href="documents.html" class="link-orange">Upload</a>
+                        </div>
+                        <ul id="docList" class="doc-list"></ul>
+                    </section>
+
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="dash-col">
+
+                    <section class="panel" id="notifications">
+                        <div class="panel-head">
+                            <h2 class="panel-title"><span class="step"><i class="fa-solid fa-bell"></i></span> Notifications</h2>
+                            <button type="button" id="markRead" class="link-btn">Mark all read</button>
+                        </div>
+                        <ul id="notifList" class="notif-list"></ul>
+                    </section>
+
+                    <section class="panel">
+                        <h2 class="panel-title"><span class="step"><i class="fa-solid fa-bolt"></i></span> Quick actions</h2>
+                        <div class="quick">
+                            <a href="profile.html"><i class="fa-solid fa-user-pen"></i><span>Update profile</span></a>
+                            <a href="documents.html"><i class="fa-solid fa-cloud-arrow-up"></i><span>Upload documents</span></a>
+                            <a href="training.html"><i class="fa-solid fa-clipboard-check"></i><span>Add training</span></a>
+                            <a href="support.html"><i class="fa-solid fa-headset"></i><span>Contact support</span></a>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

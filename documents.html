@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents - Jowaina Son Boda Boda Community</title>
+    <meta name="robots" content="noindex, nofollow">
+    <!-- education.css holds the shared header, sidebar and panel styles; documents.css adds the upload parts -->
+    <link rel="stylesheet" href="education.css">
+    <link rel="stylesheet" href="documents.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ================= TOP HEADER ================= -->
+    <header class="topbar">
+        <div class="topbar-inner">
+
+            <button type="button" id="sidebarToggle" class="icon-btn menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <a href="index.html" class="logo">
+                <span class="logo-ring"><i class="fa-solid fa-location-dot"></i></span>
+                <span class="logo-text">
+                    <span class="logo-name">JOWAINA <em>SON</em></span>
+                    <span class="logo-sub">BODA BODA COMMUNITY</span>
+                </span>
+            </a>
+
+            <nav class="top-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="riders.html">Riders</a>
+                <a href="opportunities.html">Opportunities</a>
+                <a href="support.html">Support</a>
+            </nav>
+
+            <div class="top-actions">
+                <div class="user-menu">
+                    <button type="button" id="userBtn" class="user-btn" aria-haspopup="true" aria-expanded="false" aria-controls="userDropdown">
+                        <span class="user-avatar"><i class="fa-solid fa-user"></i></span>
+                        <span class="user-name" data-rider-name>Rider</span>
+                        <i class="fa-solid fa-chevron-down user-caret"></i>
+                    </button>
+                    <div id="userDropdown" class="user-dropdown hidden" role="menu">
+                        <a href="profile.html" role="menuitem"><i class="fa-solid fa-user"></i> My Profile</a>
+                        <a href="settings.html" role="menuitem"><i class="fa-solid fa-gear"></i> Settings</a>
+                        <a href="logout.php" role="menuitem"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <div class="shell">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside id="sidebar" class="sidebar" aria-label="Rider menu">
+
+            <div class="rider-card">
+                <span class="rider-photo"><i class="fa-solid fa-user"></i></span>
+                <h2 class="rider-name" data-rider-name>Rider</h2>
+                <p class="rider-id">Rider ID: <span data-rider-id>-</span></p>
+            </div>
+
+            <nav class="side-nav" aria-label="Profile sections">
+                <a href="dashboard.html"><i class="fa-solid fa-table-cells-large"></i><span>Dashboard</span></a>
+                <a href="profile.html"><i class="fa-solid fa-user"></i><span>Profile</span></a>
+                <a href="education.html"><i class="fa-solid fa-graduation-cap"></i><span>Education &amp; Qualifications</span></a>
+                <a href="work-experience.html"><i class="fa-solid fa-briefcase"></i><span>Work Experience</span></a>
+                <a href="rider-qualifications.html"><i class="fa-solid fa-shield-halved"></i><span>Rider Qualifications</span></a>
+                <a href="skills.html"><i class="fa-solid fa-screwdriver-wrench"></i><span>Skills</span></a>
+                <a href="documents.html" class="active" aria-current="page"><i class="fa-solid fa-file-lines"></i><span>Documents</span></a>
+                <a href="opportunities.html"><i class="fa-solid fa-bullseye"></i><span>Opportunities</span></a>
+                <a href="settings.html"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+            </nav>
+
+            <nav class="side-nav side-nav-site" aria-label="Site links">
+                <a href="index.html"><i class="fa-solid fa-house"></i><span>Home</span></a>
+                <a href="index.html#about"><i class="fa-solid fa-circle-info"></i><span>About</span></a>
+                <a href="riders.html"><i class="fa-solid fa-users"></i><span>Riders</span></a>
+                <a href="support.html"><i class="fa-solid fa-headset"></i><span>Support</span></a>
+            </nav>
+
+            <div class="promo">
+                <div class="promo-logo">
+                    <span class="logo-ring logo-ring-lg"><i class="fa-solid fa-location-dot"></i></span>
+                    <span class="promo-name">JOWAINA <em>SON</em></span>
+                    <span class="promo-sub">BODA BODA COMMUNITY</span>
+                </div>
+                <p class="promo-text">Better Riders<br>Stronger<br>Communities</p>
+                <svg class="promo-swoosh" viewBox="0 0 240 90" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0 0 Q90 40 238 88 L0 90 Z" fill="#ff6a00"/>
+                    <path d="M0 26 Q70 56 150 90 L0 90 Z" fill="#0b0b0c"/>
+                    <path d="M0 50 Q50 70 90 90 L0 90 Z" fill="#ff6a00"/>
+                </svg>
+                <i class="fa-solid fa-motorcycle promo-bike" aria-hidden="true"></i>
+            </div>
+
+        </aside>
+
+        <div id="sidebarOverlay" class="sidebar-overlay hidden"></div>
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="content">
+
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="dashboard.html" aria-label="Dashboard"><i class="fa-solid fa-house"></i></a>
+                <span class="crumb-sep">|</span>
+                <a href="profile.html">Profile</a>
+                <i class="fa-solid fa-chevron-right crumb-arrow"></i>
+                <span class="crumb-current">Documents</span>
+            </nav>
+
+            <div class="page-head">
+                <div class="page-title">
+                    <span class="title-icon"><i class="fa-solid fa-file-lines"></i></span>
+                    <div>
+                        <h1>Documents</h1>
+                        <p>Upload your photo, your ID card and your certificates. Our team reviews them to verify your profile.</p>
+                    </div>
+                </div>
+
+                <div class="progress-card">
+                    <div class="progress-top"><strong>Checklist</strong></div>
+                    <ul class="checklist" aria-label="Documents checklist">
+                        <li id="chkPhoto"><i class="fa-regular fa-circle"></i> Profile photo</li>
+                        <li id="chkId"><i class="fa-regular fa-circle"></i> ID card</li>
+                        <li id="chkCert"><i class="fa-regular fa-circle"></i> <span id="chkCertText">Certificates (optional)</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="pageAlert" class="page-alert hidden" role="alert"></div>
+
+            <!-- ============ 1. PROFILE PHOTO ============ -->
+            <section class="panel">
+                <h2 class="panel-title"><span class="step">1</span> Profile Photo</h2>
+                <p class="hint">A clear, recent photo of your face. JPG, PNG or WEBP, up to 5 MB. A new photo replaces the old one.</p>
+
+                <div class="photo-row">
+                    <div id="photoPreview" class="photo-preview"><i class="fa-solid fa-user"></i></div>
+                    <div>
+                        <input type="file" id="photoInput" accept="image/jpeg,image/png,image/webp" hidden>
+                        <button type="button" id="photoBtn" class="btn btn-outline-orange">
+                            <i class="fa-solid fa-camera"></i> <span id="photoBtnText">Choose photo</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ 2. ID CARD ============ -->
+            <section class="panel">
+                <div class="panel-head">
+                    <h2 class="panel-title"><span class="step">2</span> National ID Card</h2>
+                    <div>
+                        <input type="file" id="idInput" accept="image/jpeg,image/png,image/webp,application/pdf" multiple hidden>
+                        <button type="button" id="idBtn" class="btn btn-outline-orange">
+                            <i class="fa-solid fa-plus"></i> Add ID card
+                        </button>
+                    </div>
+                </div>
+                <p class="hint">Upload the front and back of your ID card (up to 2 files). JPG, PNG, WEBP or PDF, up to 5 MB each.</p>
+                <div id="idList" class="doc-list-up"></div>
+            </section>
+
+            <!-- ============ 3. CERTIFICATES ============ -->
+            <section class="panel">
+                <h2 class="panel-title"><span class="step">3</span> Certificates <small>(upload as many as you have)</small></h2>
+                <p class="hint">Riding, first aid, mechanics, school certificates and others. JPG, PNG, WEBP or PDF, up to 5 MB each. You can choose several files at once.</p>
+
+                <div class="cert-form">
+                    <div class="field">
+                        <label for="certTitle">Certificate name (optional)</label>
+                        <input type="text" id="certTitle" maxlength="100" placeholder="e.g. Defensive Riding Certificate">
+                    </div>
+                    <div>
+                        <input type="file" id="certInput" accept="image/jpeg,image/png,image/webp,application/pdf" multiple hidden>
+                        <button type="button" id="certBtn" class="btn btn-solid-orange">
+                            <i class="fa-solid fa-cloud-arrow-up"></i> <span>Choose files &amp; upload</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="certList" class="doc-list-up"></div>
+            </section>
+
+            <div class="form-actions form-actions-end">
+                <a href="dashboard.html" class="btn btn-solid-orange">
+                    <span>Back to dashboard</span> <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast hidden" role="status">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastMsg">Saved</span>
+    </div>
+
+    <script src="documents.js"></script>
+</body>
+</html>

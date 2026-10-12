@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rider Login - Jowaina Son Boda Boda Community</title>
+
+    <link rel="stylesheet" href="log in.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="site-header">
+
+        <div class="header-inner">
+
+            <a href="index.html" class="logo">
+
+                <span class="logo-ring">
+                    <i class="fa-solid fa-location-dot"></i>
+                </span>
+
+                <span class="logo-text">
+
+                    <span class="logo-name">
+                        JOWAINA <em>SON</em>
+                    </span>
+
+                    <span class="logo-sub">
+                        BODA BODA COMMUNITY
+                    </span>
+
+                </span>
+
+            </a>
+
+
+            <!-- Desktop Navigation -->
+
+            <nav class="main-nav" aria-label="Main navigation">
+
+                <a href="index.html" class="active">Home</a>
+
+                <a href="index.html#about">About</a>
+
+                <a href="index.html#features">Features</a>
+
+                <a href="index.html#opportunities">Opportunities</a>
+
+                <a href="index.html#support">Support</a>
+
+            </nav>
+
+
+            <!-- Header Buttons -->
+
+            <div class="header-buttons">
+
+                <a href="Log in.html" class="btn btn-outline">
+                    Login
+                </a>
+
+                <a href="Join the community.html" class="btn btn-solid">
+                    Register
+                </a>
+
+            </div>
+
+
+            <!-- Mobile Menu Button -->
+
+            <button
+                type="button"
+                id="menuToggle"
+                class="menu-toggle"
+                onclick="toggleMenu()"
+                aria-label="Open menu"
+                aria-expanded="false"
+                aria-controls="mobileMenu">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+
+        <!-- Mobile Menu -->
+
+        <nav
+            id="mobileMenu"
+            class="mobile-menu hidden"
+            aria-label="Mobile navigation">
+
+            <a href="index.html" class="active">
+                Home
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#features">
+                Features
+            </a>
+
+            <a href="index.html#opportunities">
+                Opportunities
+            </a>
+
+            <a href="index.html#support">
+                Support
+            </a>
+
+
+            <div class="mobile-menu-buttons">
+
+                <a href="Log in.html" class="btn btn-outline">
+                    Login
+                </a>
+
+                <a href="Join the community.html" class="btn btn-solid">
+                    Register
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="page">
+
+        <div class="layout">
+
+
+            <!-- =================================================
+                 LEFT INFORMATION PANEL
+            ================================================== -->
+
+            <aside class="info-panel">
+
+                <div class="panel-logo">
+
+                    <span class="logo-ring logo-ring-lg">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </span>
+
+                    <span class="logo-text">
+
+                        <span class="logo-name logo-name-lg">
+                            JOWAINA <em>SON</em>
+                        </span>
+
+                        <span class="logo-sub logo-sub-lg">
+                            BODA BODA COMMUNITY
+                        </span>
+
+                    </span>
+
+                </div>
+
+
+                <!-- Motorcycle Icon -->
+
+                <div class="rider-icon" aria-hidden="true">
+
+                    <span class="speed-lines">
+
+                        <i></i>
+                        <i></i>
+                        <i></i>
+
+                    </span>
+
+                    <i class="fa-solid fa-motorcycle"></i>
+
+                </div>
+
+
+                <!-- Welcome Text -->
+
+                <h2 class="panel-title">
+
+                    Welcome back to the
+                    <span>Jowaina Son</span>
+                    Rider Community
+
+                </h2>
+
+
+                <p class="panel-text">
+
+                    Log in with the details you used to register
+                    to see your profile, training and opportunities.
+
+                </p>
+
+
+                <!-- Benefits -->
+
+                <ul class="benefits">
+
+                    <li>
+
+                        <span class="tick">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+
+                        Get verified as a professional rider
+
+                    </li>
+
+
+                    <li>
+
+                        <span class="tick">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+
+                        Access training and resources
+
+                    </li>
+
+
+                    <li>
+
+                        <span class="tick">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+
+                        Find job and business opportunities
+
+                    </li>
+
+
+                    <li>
+
+                        <span class="tick">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+
+                        Be part of a trusted community
+
+                    </li>
+
+                </ul>
+
+
+                <!-- Decorative Swoosh -->
+
+                <svg
+                    class="swoosh"
+                    viewBox="0 0 240 130"
+                    preserveAspectRatio="none"
+                    aria-hidden="true">
+
+                    <path
+                        d="M0 0 Q95 70 235 128 L0 130 Z"
+                        fill="#ff6a00">
+                    </path>
+
+                    <path
+                        d="M0 44 Q80 86 178 130 L0 130 Z"
+                        fill="#0b0b0c">
+                    </path>
+
+                    <path
+                        d="M0 78 Q60 104 108 130 L0 130 Z"
+                        fill="#ff6a00">
+                    </path>
+
+                </svg>
+
+            </aside>
+
+
+
+            <!-- =================================================
+                 RIGHT LOGIN FORM
+            ================================================== -->
+
+            <section class="form-card">
+
+                <div class="form-heading">
+
+                    <span class="heading-bar"></span>
+
+                    <div>
+
+                        <h1>
+                            Rider Login
+                        </h1>
+
+                        <p>
+                            Log in to your account and continue your journey.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     LOGIN FORM
+                ================================================== -->
+
+                <form
+                    id="loginForm"
+                    action="log in.php"
+                    method="POST"
+                    onsubmit="handleLogin(event)"
+                    novalidate>
+
+
+                    <!-- EMAIL / PHONE -->
+
+                    <div class="field">
+
+                        <label for="identifier">
+
+                            Email or Phone Number
+
+                            <span class="req">
+                                *
+                            </span>
+
+                        </label>
+
+
+                        <div class="input-box">
+
+                            <span class="input-icon">
+
+                                <i class="fa-solid fa-user"></i>
+
+                            </span>
+
+
+                            <input
+                                type="text"
+                                id="identifier"
+                                name="identifier"
+                                placeholder="Email or phone, e.g. 0712345678"
+                                autocomplete="username"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="field">
+
+                        <label for="password">
+
+                            Password
+
+                            <span class="req">
+                                *
+                            </span>
+
+                        </label>
+
+
+                        <div class="input-box">
+
+                            <span class="input-icon">
+
+                                <i class="fa-solid fa-lock"></i>
+
+                            </span>
+
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required>
+
+
+                            <!-- Show / Hide Password -->
+
+                            <button
+                                type="button"
+                                class="eye-btn"
+                                onclick="togglePassword()"
+                                aria-label="Show or hide password">
+
+                                <i
+                                    id="eyeIcon"
+                                    class="fa-solid fa-eye-slash">
+                                </i>
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- LOGIN ERROR / SUCCESS MESSAGE -->
+
+                        <span
+                            id="formError"
+                            class="error hidden"
+                            role="alert">
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- LOGIN BUTTON -->
+
+                    <button
+                        type="submit"
+                        id="loginBtn"
+                        class="btn-create">
+
+                        <i class="fa-solid fa-right-to-bracket"></i>
+
+                        <span>
+                            Log in
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- REGISTER LINK -->
+
+                    <p class="login-line">
+
+                        Don't have an account?
+
+                        <a href="Join the community.html">
+                            Sign up
+                        </a>
+
+                    </p>
+
+                </form>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           LOGIN FUNCTION
+        ====================================================== */
+
+        async function handleLogin(event) {
+
+            /*
+             * Stop the browser from reloading the page.
+             */
+            event.preventDefault();
+
+
+            /*
+             * Get the form.
+             */
+            const form =
+                document.getElementById('loginForm');
+
+
+            /*
+             * Get the message/error area.
+             */
+            const errorBox =
+                document.getElementById('formError');
+
+
+            /*
+             * Get the login button.
+             */
+            const loginBtn =
+                document.getElementById('loginBtn');
+
+
+            /*
+             * Get the email/phone.
+             */
+            const identifier =
+                document.getElementById('identifier').value.trim();
+
+
+            /*
+             * Get the password.
+             */
+            const password =
+                document.getElementById('password').value;
+
+
+            /*
+             * Clear previous messages.
+             */
+
+            errorBox.textContent = '';
+
+            errorBox.classList.add('hidden');
+
+            errorBox.style.color = '';
+
+
+            /*
+             * Check empty fields.
+             */
+
+            if (identifier === '' || password === '') {
+
+                errorBox.textContent =
+                    'Please enter your email/phone and password.';
+
+                errorBox.classList.remove('hidden');
+
+                errorBox.style.color = 'red';
+
+                return;
+            }
+
+
+            /*
+             * Disable button while logging in.
+             */
+
+            loginBtn.disabled = true;
+
+            loginBtn.querySelector('span').textContent =
+                'Logging in...';
+
+
+            try {
+
+
+                /*
+                 * Send login details to PHP.
+                 */
+
+                const response = await fetch('log in.php', {
+
+                    method: 'POST',
+
+                    body: new FormData(form)
+
+                });
+
+
+                /*
+                 * Read PHP response.
+                 */
+
+                const text = await response.text();
+
+
+                /*
+                 * Show PHP response in browser console.
+                 * This is useful for debugging.
+                 */
+
+                console.log('PHP RESPONSE:', text);
+
+
+                /*
+                 * Convert JSON text to JavaScript object.
+                 */
+
+                let result;
+
+
+                try {
+
+                    result = JSON.parse(text);
+
+                } catch (jsonError) {
+
+                    console.error(
+                        'PHP did not return valid JSON:',
+                        text
+                    );
+
+
+                    errorBox.textContent =
+                        'The server returned an invalid response. Check log in.php.';
+
+
+                    errorBox.classList.remove('hidden');
+
+                    errorBox.style.color = 'red';
+
+
+                    loginBtn.disabled = false;
+
+                    loginBtn.querySelector('span').textContent =
+                        'Log in';
+
+
+                    return;
+                }
+
+
+                /*
+                 * LOGIN SUCCESS
+                 */
+
+                if (result.success === true) {
+
+
+                    errorBox.textContent =
+                        result.message || 'Login successful!';
+
+
+                    errorBox.classList.remove('hidden');
+
+                    errorBox.style.color = 'green';
+
+
+                    /*
+                     * Redirect to dashboard.
+                     */
+
+                    setTimeout(function () {
+
+                        window.location.href =
+                            result.redirect || 'dashboard.html';
+
+                    }, 500);
+
+
+                }
+
+
+                /*
+                 * LOGIN FAILED
+                 */
+
+                else {
+
+
+                    errorBox.textContent =
+                        result.message || 'Login failed.';
+
+
+                    errorBox.classList.remove('hidden');
+
+                    errorBox.style.color = 'red';
+
+
+                    /*
+                     * Enable button again.
+                     */
+
+                    loginBtn.disabled = false;
+
+                    loginBtn.querySelector('span').textContent =
+                        'Log in';
+
+                }
+
+
+            }
+
+
+            /*
+             * NETWORK / SERVER ERROR
+             */
+
+            catch (error) {
+
+
+                console.error(
+                    'LOGIN FETCH ERROR:',
+                    error
+                );
+
+
+                errorBox.textContent =
+                    'Could not connect to the server. Make sure Apache is running and the PHP file is in the correct folder.';
+
+
+                errorBox.classList.remove('hidden');
+
+                errorBox.style.color = 'red';
+
+
+                loginBtn.disabled = false;
+
+                loginBtn.querySelector('span').textContent =
+                    'Log in';
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           SHOW / HIDE PASSWORD
+        ====================================================== */
+
+        function togglePassword() {
+
+
+            const password =
+                document.getElementById('password');
+
+
+            const eyeIcon =
+                document.getElementById('eyeIcon');
+
+
+            if (password.type === 'password') {
+
+
+                /*
+                 * Show password.
+                 */
+
+                password.type = 'text';
+
+
+                eyeIcon.classList.remove(
+                    'fa-eye-slash'
+                );
+
+
+                eyeIcon.classList.add(
+                    'fa-eye'
+                );
+
+
+            } else {
+
+
+                /*
+                 * Hide password.
+                 */
+
+                password.type = 'password';
+
+
+                eyeIcon.classList.remove(
+                    'fa-eye'
+                );
+
+
+                eyeIcon.classList.add(
+                    'fa-eye-slash'
+                );
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           MOBILE MENU
+        ====================================================== */
+
+        function toggleMenu() {
+
+
+            const menu =
+                document.getElementById('mobileMenu');
+
+
+            const button =
+                document.getElementById('menuToggle');
+
+
+            /*
+             * Toggle hidden class.
+             */
+
+            menu.classList.toggle('hidden');
+
+
+            /*
+             * Update accessibility state.
+             */
+
+            const isOpen =
+                !menu.classList.contains('hidden');
+
+
+            button.setAttribute(
+                'aria-expanded',
+                isOpen ? 'true' : 'false'
+            );
+
+        }
+
+
+    </script>
+
+</body>
+</html>

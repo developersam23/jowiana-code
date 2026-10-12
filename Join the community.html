@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Community - Jowaina Son Boda Boda</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="join the community.css">
+    <!-- Popup styles (modals.css must be in the same folder) -->
+    <link rel="stylesheet" href="modals.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="site-body">
+
+    <!-- Header Navigation -->
+    <header class="header-nav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-box">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-motorcycle"></i>
+                    </div>
+                </div>
+                <div class="brand-text">
+                    <div class="brand-name">
+                        <span class="text-white">JOWAINA</span>
+                        <span class="text-orange">SON</span>
+                    </div>
+                    <span class="brand-subtext">BODA BODA COMMUNITY</span>
+                </div>
+            </a>
+
+            <nav class="desktop-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="#about" onclick="openModal('aboutModal'); return false;" class="nav-link">About</a>
+                <a href="#contact" onclick="openModal('contactModal'); return false;" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="Log in.html" class="btn-login">Log in</a>
+                <a href="Join the community.html" class="btn-primary active-btn">
+                    <span>Join the community</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square icon-sm"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Registration Section -->
+    <main class="page-container">
+        <div class="registration-card">
+            
+            <!-- Left Info Panel -->
+            <div class="card-banner">
+                <div class="banner-header">
+                    <div class="banner-icon-box">
+                        <i class="fa-solid fa-motorcycle text-orange"></i>
+                    </div>
+                    <h2 class="banner-title">Join the BodaBoda Rider Community</h2>
+                    <p class="banner-desc">
+                        Fill in your details to register. It only takes a few minutes and will help you access training, opportunities, and support services.
+                    </p>
+                </div>
+
+                <ul class="benefit-list">
+                    <li class="benefit-item">
+                        <span class="check-badge"><i class="fa-solid fa-check"></i></span>
+                        <span>Get verified as a professional rider</span>
+                    </li>
+                    <li class="benefit-item">
+                        <span class="check-badge"><i class="fa-solid fa-check"></i></span>
+                        <span>Access training and resources</span>
+                    </li>
+                    <li class="benefit-item">
+                        <span class="check-badge"><i class="fa-solid fa-check"></i></span>
+                        <span>Find job and business opportunities</span>
+                    </li>
+                    <li class="benefit-item">
+                        <span class="check-badge"><i class="fa-solid fa-check"></i></span>
+                        <span>Be part of a trusted community</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right Registration Form Panel -->
+            <div class="card-form-container">
+                <div class="form-header">
+                    <h1 class="form-title">Rider Registration</h1>
+                    <p class="form-subtitle">Create your account and start your journey.</p>
+                </div>
+
+                <!-- The form is sent to register.php, which saves it in the database -->
+                <form id="registrationForm" action="register.php" method="POST" onsubmit="handleRegistration(event)" class="registration-form" novalidate>
+
+                    <!-- Hidden trap for spam bots (real people never see or fill this) -->
+                    <div style="position:absolute; left:-9999px;" aria-hidden="true">
+                        <label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+                    </div>
+                    
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="fullName" class="form-label">Full Name <span class="required">*</span></label>
+                        <input type="text" id="fullName" name="full_name" required maxlength="100" autocomplete="name" placeholder="e.g. John Kamau" class="form-input">
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="form-group">
+                        <label for="phoneNumber" class="form-label">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phoneNumber" name="phone" required maxlength="15" autocomplete="tel" placeholder="e.g. 0712345678" class="form-input">
+                    </div>
+
+                    <!-- Email Address Section -->
+                    <div class="form-group">
+                        <label for="emailAddress" class="form-label">Email Address <span class="required">*</span></label>
+                        <input type="email" id="emailAddress" name="email" required maxlength="150" autocomplete="email" placeholder="enter your email address" class="form-input">
+                    </div>
+
+                    <!-- Password Section -->
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password <span class="required">*</span></label>
+                        <div class="input-password-wrapper">
+                            <input type="password" id="password" name="password" required minlength="8" autocomplete="new-password" placeholder="At least 8 characters" class="form-input">
+                            <button type="button" onclick="togglePasswordVisibility('password', 'toggleIcon1')" class="toggle-password-btn" aria-label="Toggle password visibility">
+                                <i id="toggleIcon1" class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Confirm Password Section -->
+                    <div class="form-group">
+                        <label for="confirmPassword" class="form-label">Confirm Password <span class="required">*</span></label>
+                        <div class="input-password-wrapper">
+                            <input type="password" id="confirmPassword" name="confirm_password" required autocomplete="new-password" placeholder="Re-enter your password" class="form-input">
+                            <button type="button" onclick="togglePasswordVisibility('confirmPassword', 'toggleIcon2')" class="toggle-password-btn" aria-label="Toggle password visibility">
+                                <i id="toggleIcon2" class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
+                        <!-- One place for every error message (client and server) -->
+                        <span id="passwordError" class="error-msg hidden" role="alert"></span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="submitBtn" class="btn-primary btn-full btn-lg mt-4">
+                        <span>Create Account</span>
+                    </button>
+
+                    <p class="form-footer-text">
+                        Already have an account? <a href="Log in.html" class="link-orange">Login</a>
+                    </p>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastMsg">Registration successful!</span>
+    </div>
+    
+    <!-- About Modal -->
+    <div id="aboutModal" class="modal-overlay hidden" onclick="closeOnOverlay(event, 'aboutModal')">
+        <div class="modal-card modal-lg">
+            <button onclick="closeModal('aboutModal')" class="modal-close" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="modal-title">About Jowaina Son</h3>
+            <div class="modal-body-text">
+                <p>Jowaina Son Boda Boda Community is dedicated to empowering motorcycle riders with digital identity, skills training, welfare opportunities, and community growth tools.</p>
+                <p>Our platform brings togetherness, safety, financial inclusion, and pride to everyday riders who power our towns and cities forward.</p>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('aboutModal')" class="modal-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal-overlay hidden" onclick="closeOnOverlay(event, 'contactModal')">
+        <div class="modal-card">
+            <button onclick="closeModal('contactModal')" class="modal-close" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="modal-title">Get in Touch</h3>
+            <p class="modal-subtitle">Have questions? Reach out to our community support team.</p>
+            <div class="contact-info-list">
+                <div class="contact-info-item">
+                    <i class="fa-solid fa-envelope modal-icon"></i>
+                    <span>support@jowainason.co.ke</span>
+                </div>
+                <div class="contact-info-item">
+                    <i class="fa-solid fa-phone modal-icon"></i>
+                    <span>+254 700 000 000</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('contactModal')" class="modal-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Logic -->
+    <script>
+        /* ---------- About & Contact popups ---------- */
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        function closeOnOverlay(e, id) {
+            if (e.target.id === id) {
+                closeModal(id);
+            }
+        }
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                ['aboutModal', 'contactModal'].forEach(closeModal);
+            }
+        });
+
+        /* ---------- Show / hide password ---------- */
+        function togglePasswordVisibility(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        /* ---------- Where to go after a successful sign-up ---------- */
+        const AFTER_REGISTER_PAGE = 'Log in.html';
+
+        function showError(message) {
+            const box = document.getElementById('passwordError');
+            box.textContent = message;
+            box.classList.remove('hidden');
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').textContent = message;
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 3000);
+        }
+
+        /* ---------- Send the form to register.php ---------- */
+        async function handleRegistration(e) {
+            e.preventDefault();
+
+            const form = document.getElementById('registrationForm');
+            const button = document.getElementById('submitBtn');
+            const errorBox = document.getElementById('passwordError');
+            errorBox.classList.add('hidden');
+
+            // Quick checks in the browser (register.php checks again for safety)
+            const pass = document.getElementById('password').value;
+            const confirmPass = document.getElementById('confirmPassword').value;
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            if (pass.length < 8) {
+                showError('Password must be at least 8 characters.');
+                return;
+            }
+            if (pass !== confirmPass) {
+                showError('Passwords do not match.');
+                return;
+            }
+
+            button.disabled = true;
+            const label = button.querySelector('span');
+            label.textContent = 'Creating account...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form)
+                });
+                const result = await response.json();
+
+                if (result.success) {
+                    showToast(result.message);
+                    form.reset();
+                    setTimeout(() => { window.location.href = AFTER_REGISTER_PAGE; }, 1800);
+                } else {
+                    showError(result.message || 'Registration failed. Please try again.');
+                }
+            } catch (err) {
+                showError('Could not reach the server. Make sure XAMPP (Apache and MySQL) is running and you opened this page through http://localhost.');
+            } finally {
+                button.disabled = false;
+                label.textContent = 'Create Account';
+            }
+        }
+    </script>
+</body>
+</html>

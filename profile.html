@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile - Jowaina Son Boda Boda Community</title>
+
+    <link rel="stylesheet" href="education.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .profile-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: var(--gap, 1rem);
+        }
+
+        .profile-heading {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-heading h1 {
+            font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+        }
+
+        .profile-heading p {
+            color: var(--slate, #475569);
+            font-size: .85rem;
+            margin-top: .3rem;
+        }
+
+        .profile-card,
+        .profile-edit-card {
+            background: #fff;
+            border: 1px solid #e8ebf0;
+            border-radius: .7rem;
+            padding: clamp(1rem, 2vw, 1.6rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-bottom: 1.4rem;
+            margin-bottom: 1.4rem;
+            border-bottom: 1px solid #dbe3ee;
+        }
+
+        .profile-avatar {
+            width: 5rem;
+            height: 5rem;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: #ff6a00;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .profile-header-info {
+            min-width: 0;
+        }
+
+        .profile-header h2 {
+            margin-bottom: .3rem;
+            overflow-wrap: anywhere;
+        }
+
+        .profile-header p {
+            color: #64748b;
+            font-size: .85rem;
+        }
+
+        .profile-section-title {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+        }
+
+        .profile-section-title i {
+            color: #ff6a00;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .profile-field {
+            min-width: 0;
+            padding: 1rem;
+            border: 1px solid #e8ebf0;
+            border-radius: .6rem;
+            background: #f8fafc;
+        }
+
+        .profile-field label {
+            display: block;
+            color: #64748b;
+            font-size: .8rem;
+            margin-bottom: .4rem;
+        }
+
+        .profile-value {
+            font-size: .9rem;
+            font-weight: 600;
+            overflow-wrap: anywhere;
+        }
+
+        .profile-field input {
+            width: 100%;
+            min-width: 0;
+            padding: .75rem;
+            border: 1px solid #dbe3ee;
+            border-radius: .5rem;
+            background: #fff;
+            color: #0f172a;
+            font: inherit;
+            font-size: 16px;
+        }
+
+        .profile-field input:focus {
+            outline: none;
+            border-color: #ff6a00;
+            box-shadow: 0 0 0 3px rgba(255, 106, 0, .15);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: .35rem .75rem;
+            border-radius: 999px;
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: capitalize;
+            background: #e2e8f0;
+            color: #334155;
+        }
+
+        .status-verified {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-rejected {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .profile-message {
+            display: flex;
+            align-items: flex-start;
+            gap: .6rem;
+            padding: .9rem 1rem;
+            margin-bottom: 1rem;
+            border-radius: .5rem;
+            background: #dcfce7;
+            color: #166534;
+            font-size: .85rem;
+            overflow-wrap: anywhere;
+        }
+
+        .profile-message.profile-error {
+            background: #fef2f2;
+            color: #991b1b;
+        }
+
+        .profile-edit-description {
+            color: #475569;
+            font-size: .85rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .profile-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .75rem;
+            margin-top: 1.4rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #dbe3ee;
+        }
+
+        .profile-actions .btn,
+        .profile-actions .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            text-decoration: none;
+            font-size: .88rem;
+            font-weight: 600;
+            padding: .75rem 1.1rem;
+            border-radius: .5rem;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #ff6a00;
+            border: 1px solid #ff6a00;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #e55f00;
+        }
+
+        .btn-outline {
+            background: #fff;
+            border: 1px solid #ff6a00;
+            color: #e55f00;
+        }
+
+        .btn-secondary {
+            background: #edf2f7;
+            border: 1px solid #dbe3ee;
+            color: #263238;
+        }
+
+        button:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        @media (max-width: 600px) {
+            .profile-container {
+                padding: .75rem;
+            }
+
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-header {
+                align-items: flex-start;
+            }
+
+            .profile-avatar {
+                width: 3.8rem;
+                height: 3.8rem;
+                font-size: 1.3rem;
+            }
+
+            .profile-actions {
+                flex-direction: column;
+            }
+
+            .profile-actions > * {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<main class="profile-container">
+
+    <header class="profile-heading">
+        <div class="title-icon">
+            <i class="fa-solid fa-user"></i>
+        </div>
+
+        <div>
+            <h1>My Profile</h1>
+            <p>View and update your registered account information.</p>
+        </div>
+    </header>
+
+    <div id="profileMessage" class="profile-message"
+         role="status" aria-live="polite">
+        <i class="fa-solid fa-spinner fa-spin"></i>
+        <span>Loading your profile...</span>
+    </div>
+
+    <!-- PROFILE DISPLAY -->
+    <section class="profile-card">
+
+        <div class="profile-header">
+            <div class="profile-avatar" id="profileAvatar">R</div>
+
+            <div class="profile-header-info">
+                <h2 id="profileName">Loading...</h2>
+                <p id="profileRiderId">Rider ID: Loading...</p>
+
+                <p style="margin-top:.6rem">
+                    <span id="profileStatus" class="status-badge">
+                        Loading...
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <h3 class="profile-section-title">
+            <i class="fa-solid fa-address-card"></i>
+            Personal Information
+        </h3>
+
+        <div class="profile-grid">
+
+            <div class="profile-field">
+                <label>Full Name</label>
+                <div class="profile-value" id="fullName">—</div>
+            </div>
+
+            <div class="profile-field">
+                <label>Rider ID</label>
+                <div class="profile-value" id="riderId">—</div>
+            </div>
+
+            <div class="profile-field">
+                <label>Phone Number</label>
+                <div class="profile-value" id="phone">—</div>
+            </div>
+
+            <div class="profile-field">
+                <label>Email Address</label>
+                <div class="profile-value" id="email">—</div>
+            </div>
+
+            <div class="profile-field">
+                <label>Account Status</label>
+                <div class="profile-value" id="accountStatus">—</div>
+            </div>
+
+            <div class="profile-field">
+                <label>Account Type</label>
+                <div class="profile-value" id="accountRole">—</div>
+            </div>
+
+        </div>
+
+        <nav class="profile-actions" aria-label="Profile actions">
+
+            <button type="button" id="editProfileButton"
+                    class="btn btn-primary">
+                <i class="fa-solid fa-user-pen"></i>
+                Edit Profile
+            </button>
+
+            <a href="dashboard.html" class="btn btn-outline">
+                <i class="fa-solid fa-gauge"></i>
+                Dashboard
+            </a>
+
+            <a href="education.html" class="btn btn-outline">
+                <i class="fa-solid fa-graduation-cap"></i>
+                Education
+            </a>
+
+            <a href="logout.php" class="btn btn-secondary">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Sign Out
+            </a>
+
+        </nav>
+    </section>
+
+    <!-- EDIT PROFILE FORM -->
+    <section class="profile-edit-card" id="editProfilePanel" hidden>
+
+        <h3 class="profile-section-title">
+            <i class="fa-solid fa-user-pen"></i>
+            Edit Personal Information
+        </h3>
+
+        <p class="profile-edit-description">
+            Change your name, phone number or email address, then save.
+        </p>
+
+        <form id="editProfileForm">
+
+            <div class="profile-grid">
+
+                <div class="profile-field">
+                    <label for="editFullName">Full Name</label>
+                    <input type="text"
+                           id="editFullName"
+                           name="full_name"
+                           maxlength="120"
+                           autocomplete="name"
+                           required>
+                </div>
+
+                <div class="profile-field">
+                    <label for="editPhone">Phone Number</label>
+                    <input type="tel"
+                           id="editPhone"
+                           name="phone"
+                           maxlength="30"
+                           autocomplete="tel"
+                           required>
+                </div>
+
+                <div class="profile-field">
+                    <label for="editEmail">Email Address</label>
+                    <input type="email"
+                           id="editEmail"
+                           name="email"
+                           maxlength="254"
+                           autocomplete="email"
+                           required>
+                </div>
+
+            </div>
+
+            <div id="editProfileMessage"
+                 class="profile-message"
+                 role="status"
+                 aria-live="polite"
+                 hidden></div>
+
+            <div class="profile-actions">
+
+                <button type="submit"
+                        id="saveProfileButton"
+                        class="btn btn-primary">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Save Changes
+                </button>
+
+                <button type="button"
+                        id="cancelEditButton"
+                        class="btn btn-secondary">
+                    Cancel
+                </button>
+
+            </div>
+        </form>
+    </section>
+
+</main>
+
+<script>
+(() => {
+    const message = document.getElementById('profileMessage');
+    const editPanel = document.getElementById('editProfilePanel');
+    const editForm = document.getElementById('editProfileForm');
+    const editMessage = document.getElementById('editProfileMessage');
+    const saveButton = document.getElementById('saveProfileButton');
+
+    let rider = null;
+    let csrfToken = '';
+
+    function showMessage(element, text, error = false) {
+        element.replaceChildren();
+
+        const icon = document.createElement('i');
+        icon.className = error
+            ? 'fa-solid fa-circle-exclamation'
+            : 'fa-solid fa-circle-check';
+
+        const span = document.createElement('span');
+        span.textContent = text;
+
+        element.append(icon, span);
+        element.classList.toggle('profile-error', error);
+        element.hidden = false;
+    }
+
+    async function requestJSON(url, options = {}) {
+        const response = await fetch(url, {
+            credentials: 'same-origin',
+            cache: 'no-store',
+            ...options,
+            headers: {
+                'Accept': 'application/json',
+                ...(options.headers || {})
+            }
+        });
+
+        const responseText = await response.text();
+
+        let data;
+
+        try {
+            data = JSON.parse(responseText);
+        } catch (error) {
+            console.error('Request URL:', url);
+            console.error('HTTP status:', response.status);
+            console.error('Server response:', responseText);
+
+            throw new Error(
+                'The server returned HTML instead of JSON. Check the filename, URL and PHP error log.'
+            );
+        }
+
+        if (response.status === 401) {
+            window.location.href = 'login.html';
+            throw new Error('Your login session has expired.');
+        }
+
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || 'The request failed.');
+        }
+
+        return data;
+    }
+
+    function display(id, value) {
+        document.getElementById(id).textContent =
+            value === null || value === undefined || value === ''
+                ? 'Not provided'
+                : String(value);
+    }
+
+    function renderRider(data) {
+        display('profileName', data.full_name);
+        display('fullName', data.full_name);
+
+        display(
+            'profileRiderId',
+            'Rider ID: ' + (data.rider_id || 'Not assigned')
+        );
+
+        display('riderId', data.rider_id || 'Not assigned');
+        display('phone', data.phone);
+        display('email', data.email);
+        display('accountRole', data.role);
+
+        const status = String(data.status || 'unknown').toLowerCase();
+
+        display('accountStatus', status);
+        display('profileStatus', status);
+
+        const badge = document.getElementById('profileStatus');
+        badge.className = 'status-badge';
+
+        if (['verified', 'pending', 'rejected'].includes(status)) {
+            badge.classList.add('status-' + status);
+        }
+
+        document.getElementById('profileAvatar').textContent =
+            String(data.full_name || 'R')
+                .trim()
+                .split(/\s+/)
+                .filter(Boolean)
+                .slice(0, 2)
+                .map(part => part.charAt(0).toUpperCase())
+                .join('') || 'R';
+    }
+
+    async function loadProfile() {
+        try {
+            const data = await requestJSON('me.php');
+
+            rider = data.rider || data;
+            csrfToken = data.csrf_token || '';
+
+            if (!csrfToken) {
+                throw new Error(
+                    'The security token is missing. Refresh the page and try again.'
+                );
+            }
+
+            renderRider(rider);
+
+            showMessage(
+                message,
+                'Your profile loaded successfully.'
+            );
+
+        } catch (error) {
+            showMessage(
+                message,
+                error.message || 'Unable to load your profile.',
+                true
+            );
+        }
+    }
+
+    // Open the form without changing the page URL.
+    document.getElementById('editProfileButton')
+        .addEventListener('click', () => {
+            if (!rider) {
+                showMessage(
+                    message,
+                    'Your profile is still loading. Please wait.',
+                    true
+                );
+                return;
+            }
+
+            document.getElementById('editFullName').value =
+                rider.full_name || '';
+
+            document.getElementById('editPhone').value =
+                rider.phone || '';
+
+            document.getElementById('editEmail').value =
+                rider.email || '';
+
+            editMessage.hidden = true;
+            editPanel.hidden = false;
+
+            editPanel.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+
+    // Cancel editing.
+    document.getElementById('cancelEditButton')
+        .addEventListener('click', () => {
+            editPanel.hidden = true;
+            editMessage.hidden = true;
+        });
+
+    // Save changes to the database.
+    editForm.addEventListener('submit', async event => {
+        event.preventDefault();
+
+        if (!editForm.reportValidity()) {
+            return;
+        }
+
+        saveButton.disabled = true;
+        saveButton.innerHTML =
+            '<i class="fa-solid fa-spinner fa-spin"></i> Saving...';
+
+        try {
+            const data = await requestJSON('update-profile.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    full_name: document.getElementById('editFullName')
+                        .value.trim(),
+
+                    phone: document.getElementById('editPhone')
+                        .value.trim(),
+
+                    email: document.getElementById('editEmail')
+                        .value.trim(),
+
+                    csrf_token: csrfToken
+                })
+            });
+
+            rider = data.rider;
+            renderRider(rider);
+
+            showMessage(
+                editMessage,
+                data.message || 'Your profile was updated successfully.'
+            );
+
+            showMessage(
+                message,
+                'Your profile has been saved successfully.'
+            );
+
+        } catch (error) {
+            showMessage(
+                editMessage,
+                error.message || 'Unable to save your profile.',
+                true
+            );
+        } finally {
+            saveButton.disabled = false;
+            saveButton.innerHTML =
+                '<i class="fa-solid fa-floppy-disk"></i> Save Changes';
+        }
+    });
+
+    loadProfile();
+})();
+</script>
+
+</body>
+</html>

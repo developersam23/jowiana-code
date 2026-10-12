@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Administrator - Jowaina Son</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="admin-create.css">
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="brand">
+        <div class="brand-icon">
+            <i class="fas fa-motorcycle"></i>
+        </div>
+
+        <div>
+            <h1>JOWAINA SON</h1>
+            <p>BODA BODA COMMUNITY</p>
+        </div>
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-header">
+            <div class="admin-icon">
+                <i class="fas fa-user-shield"></i>
+            </div>
+
+            <h2>Create Administrator</h2>
+
+            <p>
+                Create an administrator account for the Jowaina Son
+                Boda Boda Community system.
+            </p>
+        </div>
+
+
+        <div id="message" class="message"></div>
+
+
+        <form id="adminCreateForm">
+
+            <div class="form-group">
+
+                <label for="full_name">
+                    <i class="fas fa-user"></i>
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="full_name"
+                    name="full_name"
+                    placeholder="Enter administrator full name"
+                    autocomplete="name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="phone">
+                    <i class="fas fa-phone"></i>
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="07XXXXXXXX"
+                    autocomplete="tel"
+                    maxlength="15"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    <i class="fas fa-envelope"></i>
+                    Administrator Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="admin@example.com"
+                    autocomplete="email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="password">
+                    <i class="fas fa-lock"></i>
+                    Password
+                </label>
+
+                <div class="password-box">
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Minimum 8 characters"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="toggle-password"
+                        data-target="password"
+                        aria-label="Show password"
+                    >
+                        <i class="fas fa-eye"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="confirm_password">
+                    <i class="fas fa-lock"></i>
+                    Confirm Password
+                </label>
+
+                <div class="password-box">
+
+                    <input
+                        type="password"
+                        id="confirm_password"
+                        name="confirm_password"
+                        placeholder="Repeat password"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="toggle-password"
+                        data-target="confirm_password"
+                        aria-label="Show password"
+                    >
+                        <i class="fas fa-eye"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <button type="submit" id="createBtn" class="create-btn">
+
+                <span id="btnText">
+                    <i class="fas fa-user-plus"></i>
+                    Create Administrator
+                </span>
+
+                <span id="btnLoading" style="display:none;">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    Creating...
+                </span>
+
+            </button>
+
+        </form>
+
+
+        <div class="bottom-links">
+
+            <a href="admin-login.html">
+                <i class="fas fa-arrow-left"></i>
+                Back to Administrator Login
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer">
+
+        <p>
+            &copy; 2026 Jowaina Son Boda Boda Community
+        </p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const form = document.getElementById("adminCreateForm");
+const message = document.getElementById("message");
+
+const createBtn = document.getElementById("createBtn");
+const btnText = document.getElementById("btnText");
+const btnLoading = document.getElementById("btnLoading");
+
+
+/* Show / hide passwords */
+
+document.querySelectorAll(".toggle-password").forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        const target = document.getElementById(
+            this.dataset.target
+        );
+
+        const icon = this.querySelector("i");
+
+        if (target.type === "password") {
+
+            target.type = "text";
+
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+
+        } else {
+
+            target.type = "password";
+
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+
+        }
+
+    });
+
+});
+
+
+/* Message */
+
+function showMessage(text, type) {
+
+    message.textContent = text;
+
+    message.className = "message " + type;
+
+    message.style.display = "block";
+
+}
+
+
+/* Submit */
+
+form.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const password =
+        document.getElementById("password").value;
+
+    const confirmPassword =
+        document.getElementById("confirm_password").value;
+
+
+    if (password.length < 8) {
+
+        showMessage(
+            "Password must contain at least 8 characters.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if (password !== confirmPassword) {
+
+        showMessage(
+            "The passwords do not match.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    createBtn.disabled = true;
+
+    btnText.style.display = "none";
+    btnLoading.style.display = "inline";
+
+
+    const formData = new FormData(form);
+
+
+    try {
+
+        const response = await fetch(
+            "admin-create.php",
+            {
+                method: "POST",
+                body: formData,
+                credentials: "same-origin"
+            }
+        );
+
+
+        const data = await response.json();
+
+
+        if (data.success) {
+
+            showMessage(
+                data.message,
+                "success"
+            );
+
+
+            form.reset();
+
+
+            setTimeout(() => {
+
+                window.location.href =
+                    "admin-login.html";
+
+            }, 1500);
+
+        } else {
+
+            showMessage(
+                data.message ||
+                "Administrator creation failed.",
+                "error"
+            );
+
+        }
+
+    } catch (error) {
+
+        showMessage(
+            "Unable to connect to the server. Please try again.",
+            "error"
+        );
+
+    } finally {
+
+        createBtn.disabled = false;
+
+        btnText.style.display = "inline";
+        btnLoading.style.display = "none";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
